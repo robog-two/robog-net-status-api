@@ -71,15 +71,16 @@ main ul {
 header.big {
   width: auto;
   margin: 0;
-  max-height: 100vh;
+  max-height: 80vh;
+  text-align: left;
 }
 
 header.big h1 {
-  font-size: 100vh;
-  line-height: 70vh;
+  font-size: calc(min(80vh, 20vw));
+  line-height: 50vh;
 }
 
 header.big p {
-  font-size: 20vh;
+  font-size: calc(min(20vh, 5vw));
   line-height: 20vh;
 }
