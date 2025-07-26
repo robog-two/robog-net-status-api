@@ -46,7 +46,8 @@ app.get("/", async (c) => {
     (service) =>
       (async () => ({
         id: service.id,
-        online: await kv.get<boolean>(["is-online-now", service.id]) ?? false,
+        online: (await kv.get<boolean>(["is-online-now", service.id])).value ??
+          false,
         timeline: (await kv.get<Array<UpReport>>(["timeline", service.id]))
           ?.value ??
           [],
@@ -80,7 +81,7 @@ app.get("/", async (c) => {
         },
         ...service.timeline.filter((it) => it.time >= yesterday),
         {
-          isUp: service.timeline[-1]?.isUp,
+          isUp: service.online,
           time: now,
         },
       ];
