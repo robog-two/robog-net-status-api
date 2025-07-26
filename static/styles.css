@@ -69,7 +69,7 @@ main ul {
 }
 
 header.big {
-  width: auto;
+  width: 100%;
   margin: 0;
   max-height: 80vh;
 }
