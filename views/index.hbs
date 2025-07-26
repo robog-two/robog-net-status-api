@@ -1,4 +1,26 @@
-<main>
-  <h1>Sam's Status Page.</h1>
+<header>
+  <img src="/favicon-96.png" alt="A dark green circle with pixelated clouds covering it"></img>
+  <h1>Sam&apos;s Status Page.</h1>
   <p>Services are {{ percentUpNow }}% operational.</p>
+</header>
+<main>
+  <ul>
+    {{#each services }}
+    <li>
+      <h2>{{ this.name }}</h2>
+      <div class="uptime-bar">
+        {{#each this.timeLengths }}
+        <div class="bar-segment bar-segment-{{ this.upState }}" style="width: {{ this.percent }}%"></div>
+        {{/each}}
+      </div>
+    </li>
+    {{/each}}
+  </ul>
 </main>
+<footer>
+  <p>
+    These services are provided with no guarantee or warranty.
+    <a href="https://robog.net/about">Contact me directly</a> if you
+    would like to use these services commercially.
+  </p>
+</footer>

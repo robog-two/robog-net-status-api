@@ -1,5 +1,5 @@
 html {
-  background-color: #fbfcff;
+  background-color: #f6f0f9;
   color: #45503b;
   font-family: "Space Mono", "Menlo", monospace;
   font-size: 12px;
@@ -18,4 +18,52 @@ h2 {
 }
 h3 {
   font-size: 13px;
+}
+
+header img {
+  width: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  text-align: center;
+}
+
+main, header, footer {
+  margin-top: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  margin-bottom: 20px;
+}
+
+main ul li {
+  list-style: none;
+}
+
+main ul {
+  padding-left: 0;
+}
+
+.uptime-bar {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+}
+
+.bar-segment {
+  height: 20px;
+  display: block;
+}
+
+.bar-segment-up {
+  background-color: #270722;
+}
+
+.bar-segment-down {
+  background-color: #ff7369;
 }

@@ -5,8 +5,8 @@
     "hono": "jsr:@hono/hono@^4.8.5"
   },
   "tasks": {
-    "start": "deno run --allow-net --allow-read=static,views main.ts",
-    "dev": "deno run --watch --allow-net --allow-read=static,views main.ts"
+    "start": "deno run --unstable-cron --unstable-kv --allow-net --allow-read=static,views main.ts",
+    "dev": "deno run --unstable-cron --unstable-kv --watch --allow-net --allow-read=static,views main.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",
