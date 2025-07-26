@@ -1,6 +1,6 @@
 html {
   background-color: #f6f0f9;
-  color: #45503b;
+  color: #270722;
   font-family: "Space Mono", "Menlo", monospace;
   font-size: 12px;
 }
@@ -61,7 +61,7 @@ main ul {
 }
 
 .bar-segment-up {
-  background-color: #270722;
+  background-color: #45503b;
 }
 
 .bar-segment-down {
