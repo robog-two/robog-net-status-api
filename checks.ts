@@ -46,7 +46,7 @@ export async function runChecks(): Promise<void> {
       ]);
       const timeline: Array<UpReport> = timelineRes.value ?? [];
 
-      if (timeline.length == 0 || timeline[-1]?.isUp != isUp) {
+      if (timeline.length == 0 || timeline[timeline.length - 1]?.isUp != isUp) {
         timeline.push({
           time: new Date(),
           isUp,
