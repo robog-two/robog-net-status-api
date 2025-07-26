@@ -67,3 +67,19 @@ main ul {
 .bar-segment-down {
   background-color: #ff7369;
 }
+
+header.big {
+  width: auto;
+  margin: 0;
+  max-height: 100vh;
+}
+
+header.big h1 {
+  font-size: 100vh;
+  line-height: 70vh;
+}
+
+header.big p {
+  font-size: 20vh;
+  line-height: 20vh;
+}

@@ -38,10 +38,15 @@ function toUpState(stateBool: boolean | undefined): string {
   if (stateBool === false) return "down";
   return "unknown";
 }
-app.get("/", async (c) => {
+
+async function retrieveServiceData(): Promise<
+  Array<
+    { id: string; online: boolean; timeline: Array<UpReport> }
+  >
+> {
   const kv = await Deno.openKv();
 
-  const services = await Promise.all(servicesConf.services.map(
+  return await Promise.all(servicesConf.services.map(
     // Retrieve all db keys in parallel
     (service) =>
       (async () => ({
@@ -53,6 +58,9 @@ app.get("/", async (c) => {
           [],
       }))(), // IIFE to convert above code into a promise
   ));
+}
+app.get("/", async (c) => {
+  const services = await retrieveServiceData();
 
   const servicesDisplay = [];
   for (const service of services) {
@@ -110,6 +118,18 @@ app.get("/", async (c) => {
       ) * 100,
     ),
     services: servicesDisplay,
+  });
+  return c.html(html);
+});
+
+app.get("/big", async (c) => {
+  const services = await retrieveServiceData();
+  const html = await renderTemplate("big.hbs", {
+    percentUpNow: Math.round(
+      (
+        services.filter((it) => it.online).length / services.length // proportion that is-online-now
+      ) * 100,
+    ),
   });
   return c.html(html);
 });
